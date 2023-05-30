@@ -98,6 +98,10 @@ genderCount(data);
 
 const promo20 = users => {
   // Your code goes here ...
+  const wealthyUser = user.filter(u => +u.balance.slice(1) > 20_000);
+  wealthyUser.forEach(user => {
+    console.log(`Dear ${user.firstName}, since your balance is ${user.balance}, you are eligible to apply for this awesome credit card.`)
+  });
 };
 
 // expected output:
