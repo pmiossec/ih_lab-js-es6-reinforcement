@@ -6,6 +6,7 @@ const getFirstNames = arr => {
   const userFirstNames = [];
   for (let user of arr) {
     // Your code goes here ...
+    userFirstNames.push(user.firstName);
   }
 };
 
@@ -19,6 +20,10 @@ getFirstNames(usersArray);
 
 const getFullNames = arr => {
   // Your code goes here ...
+  const userFullNames = [];
+  for (let user of arr) {
+    userFullNames.push(`${user.firstName} ${user.lastName}`);
+  }
 };
 
 getFullNames(usersArray);
