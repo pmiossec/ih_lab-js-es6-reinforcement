@@ -2,7 +2,7 @@
 // Iteration 1 - `for...of` loop
 // ***************************************************************************
 
-const getFirstNames = arr => {
+const getFirstNames = (arr) => {
   const userFirstNames = [];
   for (let user of arr) {
     // Your code goes here ...
@@ -18,7 +18,7 @@ getFirstNames(usersArray);
 // Iteration 2 - `for...of` loop and ES6 string literals `${}`
 // ***************************************************************************
 
-const getFullNames = arr => {
+const getFullNames = (arr) => {
   // Your code goes here ...
   const userFullNames = [];
   for (let user of arr) {
@@ -35,12 +35,12 @@ getFullNames(usersArray);
 // Iteration 3 - ES6 destructuring , for of loop, object literal
 // ***************************************************************************
 
-const getUsersCreditDetails = arr => {
+const getUsersCreditDetails = (arr) => {
   // Your code goes here ...
   const usersCreditDetails = [];
   for (let user of arr) {
     const { firstName, lastName, balance } = user;
-    usersCreditDetails.push( {firstName, lastName, balance} );
+    usersCreditDetails.push({ firstName, lastName, balance });
   }
   return usersCreditDetails;
 };
@@ -59,11 +59,12 @@ getUsersCreditDetails(usersArray);
 // Iteration 4 - practice `.filter()` method and how to return two elements
 // ***************************************************************************
 
-const genderView = users => {
+const genderView = (users) => {
   // Your code goes here ...
+  console.log(users);
   return {
-    femaleUsers: users.filter(u => u.gender === 'female'),
-    maleUsers: users.filter(u => u.gender === 'male')
+    femaleUsers: users.filter((u) => u.gender === 'female'),
+    maleUsers: users.filter((u) => u.gender === 'male'),
   };
 };
 
@@ -80,11 +81,10 @@ genderView(usersArray);
 
 const data = genderView(usersArray);
 
-const genderCount = data => {
+const genderCount = (data) => {
   // Your code goes here ...
-  const genderData = genderView(data);
-  console.log("Female:", genderData.femaleUsers.length);
-  console.log("Male:", genderData.maleUsers.length);
+  console.log('Female:', data.femaleUsers.length);
+  console.log('Male:', data.maleUsers.length);
 };
 
 genderCount(data);
@@ -96,11 +96,13 @@ genderCount(data);
 // Bonus - Iteration 6
 // ***************************************************************************
 
-const promo20 = users => {
+const promo20 = (users) => {
   // Your code goes here ...
-  const wealthyUser = user.filter(u => +u.balance.slice(1) > 20_000);
-  wealthyUser.forEach(user => {
-    console.log(`Dear ${user.firstName}, since your balance is ${user.balance}, you are eligible to apply for this awesome credit card.`)
+  const wealthyUser = users.filter((u) => +u.balance.slice(1) > 20_000);
+  wealthyUser.forEach((user) => {
+    console.log(
+      `Dear ${user.firstName}, since your balance is ${user.balance}, you are eligible to apply for this awesome credit card.`
+    );
   });
 };
 
@@ -112,14 +114,15 @@ const promo20 = users => {
 // Bonus - Iteration 7
 // ***************************************************************************
 
-const addActive = users => {
+const addActive = (users) => {
   // Your code goes here ...
-  return users.map(user => {
-    return {isActive: true, ...user};
+  return users.map((user) => {
+    return { ...user, isActive: true };
   });
 };
 
-addActive(usersArray);
+const activeUsers = addActive(usersArray);
+console.log(activeUsers);
 // expected output:
 // [
 //    { firstName: 'Kirby',
