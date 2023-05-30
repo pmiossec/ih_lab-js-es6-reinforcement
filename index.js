@@ -82,6 +82,9 @@ const data = genderView(usersArray);
 
 const genderCount = data => {
   // Your code goes here ...
+  const genderData = genderView(data);
+  console.log("Female:", genderData.femaleUsers.length);
+  console.log("Male:", genderData.maleUsers.length);
 };
 
 genderCount(data);
