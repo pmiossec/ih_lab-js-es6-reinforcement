@@ -37,6 +37,12 @@ getFullNames(usersArray);
 
 const getUsersCreditDetails = arr => {
   // Your code goes here ...
+  const usersCreditDetails = [];
+  for (let user of arr) {
+    const { firstName, lastName, balance } = user;
+    usersCreditDetails.push( {firstName, lastName, balance} );
+  }
+  return usersCreditDetails;
 };
 
 getUsersCreditDetails(usersArray);
