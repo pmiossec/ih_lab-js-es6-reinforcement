@@ -114,6 +114,9 @@ const promo20 = users => {
 
 const addActive = users => {
   // Your code goes here ...
+  return users.map(user => {
+    return {isActive: true, ...user};
+  });
 };
 
 addActive(usersArray);
